@@ -3,7 +3,7 @@ import alertReducer from "./AlertReducer";
 
 const AlertContext = createContext();
 
-export const AlertProvider = ({ childern }) => {
+export const AlertProvider = ({ children }) => {
   //set initial setup
   const initialState = null;
 
@@ -16,18 +16,12 @@ export const AlertProvider = ({ childern }) => {
       payload: { msg, type },
     });
 
-    setTimeout(
-      () =>
-        dispatch({
-          type: "REMOVE_ALERT",
-        }),
-      3000
-    );
+    setTimeout(() => dispatch({ type: "REMOVE_ALERT" }), 3000);
   };
 
   return (
     <AlertContext.Provider value={{ alert: state, setAlert }}>
-      {childern}
+      {children}
     </AlertContext.Provider>
   );
 };
