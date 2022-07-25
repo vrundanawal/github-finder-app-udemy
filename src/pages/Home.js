@@ -6,8 +6,8 @@ const Home = () => {
   return (
     <>
       {/* SEARCH COMPONENT */}
-      <UserResults />
       <UserSearch />
+      <UserResults />
     </>
   );
 };
