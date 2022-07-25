@@ -19,7 +19,7 @@ export const GithubProvider = ({ children }) => {
     setLoading();
     const response = await fetch(`${GITHUB_URL}/users`);
     const data = await response.json();
-    console.log(data);
+    //console.log(data);
     dispatch({
       type: "GET_USERS",
       payload: data,
