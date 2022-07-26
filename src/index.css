@@ -2,22 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* custom style */
+
 .custom-card-image .card.image-full:before {
   border-radius: 0.5rem;
-  opacity: 0.45;
+  opacity: 0.1;
 }
-/* custom style */
+
 a,
 .card-actions a,
 p,
 .btn-ghost,
 .card-title,
 .btn,
-.github-icon-color {
+.github-icon-color,
+.stat {
   color: white;
   text-decoration: inherit;
 }
 
 .text-opacity-40 {
   --tw-text-opacity: 0.6;
+}
+
+.card.image-full {
+  /* display: block; */
 }
