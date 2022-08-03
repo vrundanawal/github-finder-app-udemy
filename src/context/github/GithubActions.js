@@ -17,7 +17,7 @@ export const searchUsers = async (text) => {
   const response = await github.get(`/search/users?${params}`);
   return response.data.items;
 };
-
+/*
 //get a single user
 export const getUser = async (login) => {
   const response = await fetch(`${GITHUB_URL}/users/${login}`);
@@ -39,4 +39,19 @@ export const getUserRepos = async (login) => {
   const response = await fetch(`${GITHUB_URL}/users/${login}/repos?${params}`);
   const data = await response.json();
   return data;
+};
+*/
+
+//create one single function which is going to call single user and user repos
+//get user and repos
+export const getUserAndRepos = async (login) => {
+  const params = new URLSearchParams({
+    sort: "created",
+    per_page: 10,
+  });
+  const [user, repos] = await Promise.all([
+    github.get(`/users/${login}`),
+    github.get(`/users/${login}/repos?${params}`),
+  ]);
+  return { user: user.data, repos: repos.data };
 };
